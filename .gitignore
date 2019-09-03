@@ -1,0 +1,13 @@
+data/
+test_img/
+*.png
+*.csv
+.vscode
+
+models/__pycache__
+weights/__pycache__
+env/__pycache__
+
+image_encode_pair.py
+extra_table.py
+pairs.npz
