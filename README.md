@@ -1,2 +1,2 @@
-# Mature Generative Adversarial Imitation Learning
+# Video Input Generative Adversarial Imitation Learning
 
