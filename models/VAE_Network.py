@@ -18,17 +18,17 @@ class VAE_Encoder(Model):
             Conv2D(filters=256, kernel_size=(3,3), activation='relu'),                  # (2, 2, 256)
         ]
         self.flatten = Flatten()
-        self.mean_out = Dense(latent_num)
-        self.std_out = Dense(latent_num, activation='sigmoid')
+        self.mean_out = Dense(latent_num, name='mean')
+        # self.std_out = Dense(latent_num, activation='sigmoid', name='std')
 
-    def __call__(self, x, sampling=False):
+    def __call__(self, x):
         #returns out, mean, std
         m, s = self.encode(x)
-        if sampling:
-            noise = np.random.normal(size=self.latent_num)
-            z = m + s * noise
-        else:
-            z = m
+        # if sampling:
+        # noise = np.random.normal(size=self.latent_num)
+        # z = m + s * noise
+        # else:
+        z = m
         return z, m, s
     
     def forward(self, x):
@@ -40,8 +40,8 @@ class VAE_Encoder(Model):
             x = layer(x)
         x = self.flatten(x)
         m = self.mean_out(x)
-        s = self.std_out(x)
-        return m, s
+        # s = self.std_out(x)
+        return m, None
 
     def set_weights_by_list(self, l):
         for i, layer in enumerate(self.conv_layers):

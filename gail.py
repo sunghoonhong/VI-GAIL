@@ -1,7 +1,7 @@
 import os
-os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   
-os.environ["CUDA_VISIBLE_DEVICES"]='2' # '1', '2', '3', '0,1'
-os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
+# os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   
+# os.environ["CUDA_VISIBLE_DEVICES"]='2' # '1', '2', '3', '0,1'
+# os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 import csv
 import time
 import math

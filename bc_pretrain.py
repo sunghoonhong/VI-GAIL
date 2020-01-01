@@ -95,7 +95,7 @@ class BC:
 
             # update actor
             with tf.GradientTape() as tape:
-                pred_action = self.actor(self.encoder, state, sampling=True)   # (N, A)
+                pred_action = self.actor(self.encoder, state)   # (N, A)
                 # CE
                 actor_loss = -tf.reduce_mean(tf.reduce_sum(action * tf.math.log(pred_action + 1e-8), axis=1))
             grads = tape.gradient(actor_loss, self.vars)
